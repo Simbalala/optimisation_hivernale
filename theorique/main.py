@@ -10,19 +10,18 @@ from chinese_postman import *
 #       1       2
 
 def theorical_exemple():
-    g = Graph(range(0,6))
-    g.add_weighted_edges_from([(0, 1, 5), (0, 3, 2),
-                                (1, 2, 3), (1, 4, 6),
-                                (2, 5, 7),
-                                (3, 4, 1),
-                                (4, 5, 2)])
-    print(chinese_postman(g, 0))
+    g = Graph(6)
+    g.add_edges([(0, 1, 5), (0, 3, 2),
+                (1, 2, 3), (1, 4, 6),
+                (2, 5, 7),
+                (3, 4, 1),
+                (4, 5, 2)])
     return g
 
 
 def main():
     G = theorical_exemple()
-    # print(G.edges)
+    print(chinese_postman(G, 0))
 
 if __name__ == "__main__":
     main()

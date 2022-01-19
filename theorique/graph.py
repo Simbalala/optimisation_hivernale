@@ -4,26 +4,32 @@ from node import Node
 class Graph():
 
     def __init__(self, lnode):
-        self.nodes = {}
-        for n in lnode :
-            self.nodes[n] = {}
+        self.v = lnode
+        self.edges = [[None for i in range(lnode)] for j in range(lnode)]
+        self.visited = []
     
     def __getitem__(self, key):
-        return self.nodes[key]
+        return self.edges[key]
     
-    def add_weighted_edges_from(self, edges):
+    def add_edges(self, edges):
         for edge in edges :
-            if edge[1] in self.nodes[edge[0]] :
-                self.nodes[edge[0]][edge[1]].visit += 1
-            else :
-                self.nodes[edge[0]][edge[1]] = Node(edge[2], 1)
-            self.nodes[edge[1]][edge[0]] = self.nodes[edge[0]][edge[1]]
+            if self.edges[edge[0]][edge[1]] != None:
+                self.edges[edge[0]][edge[1]].visit += 1
+            else:
+                self.edges[edge[0]][edge[1]] = Node(edge[2], 1)
+            self.edges[edge[1]][edge[0]] = self.edges[edge[0]][edge[1]]
+        
     
     def odd_nodes(self):
-        return [node for node in self.nodes if len(self.nodes[node]) % 2] 
+        result = []
+        for node in self.edges:
+            l = len([n for n in node if n != None])
+            if l % 2:
+                result.append(self.edges.index(node))
+        return result
 
     def node_pairings(self, nodes):
-        if len(nodes) == 0:
+        if nodes == 0:
             return []
         final = []
 
@@ -35,10 +41,10 @@ class Graph():
                 final.append([(nodes[0], nodes[i])])
         return final
     
-    def get_all_edges(self) :
+    def all_edges(self) :
         result = []
-        for n1 in self.nodes :
-            for n2 in self.nodes[n1] :
-                if (n2, n1, self.nodes[n1][n2]) not in result :
-                    result.append((n1, n2, self.nodes[n1][n2]))
+        for n1 in range(self.v):
+            for n2 in range(len(self.edges[n1])):
+                if self.edges[n1][n2] and (n2, n1, self.edges[n1][n2]) not in result :
+                    result.append((n1, n2, self.edges[n1][n2]))
         return result
