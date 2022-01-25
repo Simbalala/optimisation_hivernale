@@ -4,6 +4,7 @@ sys.path.append(path)
 
 from graph import Graph
 from chinese_postman import *
+
 # Test 1 :
 
 #        5      3 
@@ -39,7 +40,7 @@ def theorical_exemple_1():
 #       1       2
 
 def theorical_exemple_2():
-    g = Graph(range(0,6))
+    g = Graph(range(0,9))
     g.add_edges([(0, 1, 5), (0, 3, 2),
                 (1, 2, 3), (1, 4, 6),
                 (2, 5, 7),
@@ -67,7 +68,7 @@ def theorical_exemple_2():
 #       1       2
 
 def theorical_exemple_3():
-    g = Graph(range(0,6))
+    g = Graph(range(0,11))
     g.add_edges([(0, 1, 5), (0, 3, 2),
                 (1, 2, 3), (1, 4, 6),
                 (2, 5, 7), (2, 9, 5),
@@ -81,15 +82,15 @@ def theorical_exemple_3():
 
 
 def main():
-    print("\nFirst Test : \n")
+    print("\nFirst Test : ")
     G_1 = theorical_exemple_1()
     print(chinese_postman(G_1, 0))
 
-    print("\nSecond Test : \n")
+    print("\nSecond Test : ")
     G_2 = theorical_exemple_2()
     print(chinese_postman(G_2, 0))
 
-    print("\nThird Test : \n")
+    print("\nThird Test : ")
     G_3 = theorical_exemple_3()
     print(chinese_postman(G_3, 0))
 
