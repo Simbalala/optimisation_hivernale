@@ -1,5 +1,5 @@
 from queue import Queue
-from graph import *
+from graph import Graph
 from node import *
 
 def dijkstra(graph, start, target):
@@ -29,9 +29,8 @@ def dijkstra(graph, start, target):
     return path, D[target]
 
 def chinese_postman(G, start):
-    odd = G.odd_nodes()
-    pairs = G.node_pairings(odd)
-
+    
+    pairs  = [[]]
     min_sum = float('inf')
     final_dijkstra = []
     for p in pairs:
@@ -64,9 +63,9 @@ def chinese_postman(G, start):
         while flag:
             flag = False
             current = sub_path[-1]
-            for i, neighbor in enumerate(G[current]):
-                if neighbor and neighbor.visit > 0:
-                    neighbor.visit -= 1
+            for i in G[current]:
+                if G[current][i].visit > 0:
+                    G[current][i].visit -= 1
                     sub_path.append(i)
                     flag = True
                     break
