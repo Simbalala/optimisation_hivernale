@@ -37,7 +37,7 @@ all qui va charger les graphs et les chemins decouper
 par arrondissement.
 
 ```sh
-    python3 real/main.py --all 
+    python3 real/main.py --avec 
 ```
 
 Vous pouver si vous le voulez charger le graph d'un seul arrondissment
@@ -45,8 +45,8 @@ ou de toute la ville de Monreal
 Ex: anjou
 
 ```sh
-    python3 real/main.py -vc 'Montréal, Canada'
-    python3 real/main.py -vc 'Anjou, Montréal, QC, Canada'
+    python3 real/main.py -vec 'Montréal, Canada'
+    python3 real/main.py -vec 'Anjou, Montréal, QC, Canada'
 ```
 
 # Argument
