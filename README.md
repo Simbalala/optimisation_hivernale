@@ -42,7 +42,8 @@ par arrondissement.
 
 Vous pouver si vous le voulez charger le graph d'un seul arrondissment
 ou de toute la ville de Monreal
-Ex: anjou
+
+Ex: Anjou, Montréal, QC, Canada
 
 ```sh
     python3 real/main.py -vec 'Montréal, Canada'
