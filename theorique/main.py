@@ -19,6 +19,8 @@ def theorical_exemple():
     return g
 
 
+
+
 def main():
     G = theorical_exemple()
     print(chinese_postman(G, 0))
