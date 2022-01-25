@@ -1,6 +1,9 @@
+import pathlib, sys
+path = str(pathlib.Path(__file__).parent.absolute().parent) + "/"
+sys.path.append(path)
+
 from graph import Graph
 from chinese_postman import *
-
 # Test 1 :
 
 #        5      3 
