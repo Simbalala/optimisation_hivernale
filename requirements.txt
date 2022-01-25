@@ -2,4 +2,4 @@ scipy
 numpy
 pandas
 osmnx
-graphviz
+matplotlib

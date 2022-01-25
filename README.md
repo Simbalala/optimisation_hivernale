@@ -45,8 +45,19 @@ ou de toute la ville de Monreal
 Ex: anjou
 
 ```sh
-    python3 real/main.py -c 'Montréal, Canada'
-    python3 real/main.py -c 'Anjou, Montréal, QC, Canada'
+    python3 real/main.py -vc 'Montréal, Canada'
+    python3 real/main.py -vc 'Anjou, Montréal, QC, Canada'
 ```
 
+# Argument
+
+```sh
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -a, --all             Start project on 19 sectors of Monreal
+  -c CITY, --city CITY  Start project on sector pass in params
+  -e, --export          Export path of all graph result is in export folder
+  -v, --verbose         See result in console
+```
 

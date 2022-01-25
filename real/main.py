@@ -13,7 +13,7 @@ def getopt():
     parser.add_argument('-c', '--city',
                         help='Start project on sector pass in params')
     parser.add_argument('-e', '--export',
-                        help='Export path of graph',
+                        help='Export path of all graph result is in export folder',
                         action='store_true')
     parser.add_argument('-v', '--verbose',
                         help='See result in console',
