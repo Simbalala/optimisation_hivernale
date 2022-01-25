@@ -12,8 +12,7 @@ def dijkstra(graph, start, target):
     while not pq.empty():
         (dist, current_vertex) = pq.get()
         graph.visited.append(current_vertex)
-        for neighbor in range(graph.v):
-            if graph.edges[current_vertex][neighbor] != None:
+        for neighbor in graph[current_vertex]:
                 distance = graph.edges[current_vertex][neighbor].weight
                 if neighbor not in graph.visited:
                     old_cost = D[neighbor]
@@ -29,8 +28,11 @@ def dijkstra(graph, start, target):
     return path, D[target]
 
 def chinese_postman(G, start):
+
+    odd = G.odd_nodes()
+
+    pairs = G.node_pairings(odd)
     
-    pairs  = [[]]
     min_sum = float('inf')
     final_dijkstra = []
     for p in pairs:
@@ -47,12 +49,12 @@ def chinese_postman(G, start):
     while len(cycle) != len_edges:
         edges = [e for e in G.all_edges() if e[2].visit > 0]
         sub_path = None
-        for e in edges :
-            if e[0] in cycle :
-                sub_path = [e[0]]
+        for edge in edges :
+            if edge[0] in cycle :
+                sub_path = [edge[0]]
                 break
-            elif e[1] in cycle :
-                sub_path = [e[1]]
+            elif edge[1] in cycle :
+                sub_path = [edge[1]]
                 break
         
         if sub_path == None :

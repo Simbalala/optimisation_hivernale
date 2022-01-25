@@ -23,12 +23,8 @@ class Graph():
         
     
     def odd_nodes(self):
-        result = []
-        for node in self.edges:
-            l = len([n for n in node if n != None])
-            if l % 2:
-                result.append(self.edges.index(node))
-        return result
+        return [node for node in self.edges if len(self.edges[node]) % 2]
+
 
     def node_pairings(self, nodes):
         if nodes == 0:

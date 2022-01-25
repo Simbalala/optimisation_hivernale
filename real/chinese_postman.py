@@ -12,8 +12,7 @@ def dijkstra(graph, start, target):
     while not pq.empty():
         (dist, current_vertex) = pq.get()
         graph.visited.append(current_vertex)
-        for neighbor in range(graph.v):
-            if graph.edges[current_vertex][neighbor] != None:
+        for neighbor in graph[current_vertex]:
                 distance = graph.edges[current_vertex][neighbor].weight
                 if neighbor not in graph.visited:
                     old_cost = D[neighbor]
@@ -27,6 +26,7 @@ def dijkstra(graph, start, target):
     while path[0] != start :
         path = [prev[path[0]]] + path
     return path, D[target]
+
 
 def chinese_postman(G, start):
     
