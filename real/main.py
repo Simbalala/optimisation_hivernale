@@ -12,8 +12,8 @@ def main():
     l = list(g_osmnx.nodes.items())
     cycle = chinese_postman(G, l[0][0])
    
-    print("Distance total theorique in km: ", ttk)
-    print("Distance total parcourue in km: ", tpk)
+    print("Distance total theorique en km: ", ttk)
+    print("Distance total parcourue en km: ", tpk)
     print(f"Ratio: {(ttk / tpk)* 100}%")
     print("\nResult route path:", cycle)
 
