@@ -45,8 +45,8 @@ ou de toute la ville de Monreal
 Ex: anjou
 
 ```sh
-    python3 real/main.py -c 'Anjou, Montréal, QC, Canada'
     python3 real/main.py -c 'Montréal, Canada'
+    python3 real/main.py -c 'Anjou, Montréal, QC, Canada'
 ```
 
 
