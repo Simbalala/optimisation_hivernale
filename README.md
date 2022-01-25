@@ -18,10 +18,10 @@ Nous retrouvons un exemple de graph
 python3 theorique/main.py 
 ```
 
-# Test
+## Test
 
 ```sh
-python3 theorique/test/testsuite.py 
+python3 theorique/tests/testsuite.py 
 ```
 
 
