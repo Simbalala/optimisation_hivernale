@@ -51,7 +51,8 @@ def all_monreal(verbose):
 
         l = list(g_osmnx.nodes.items())
         cycle = chinese_postman(G, l[0][0])
-        result[city] = {'distance_theo': ttk, 'distance_reel': tpk, 'ratio': (ttk / tpk)* 100, 'path': cycle}
+        result[city] = {'distance_theo': ttk, 'distance_reel': tpk, 'ratio': (tpk / ttk)* 100, 'path': cycle}
+
     if verbose:
         for key, value in result.items():
             print(f"{key}: ")
@@ -72,13 +73,13 @@ def set_geoloc(geoloc, verbose):
 
     l = list(g_osmnx.nodes.items())
     cycle = chinese_postman(G, l[0][0])
-    result[geoloc] = {'distance_theo': ttk, 'distance_reel': tpk, 'ratio': (ttk / tpk)* 100, 'path': cycle}
+    result[geoloc] = {'distance_theo': ttk, 'distance_reel': tpk, 'ratio': (tpk / ttk)* 100, 'path': cycle}
     if verbose:
         print(f"{geoloc}: ")
-        print("    Distance total theorique in km: ", ttk)
-        print("    Distance total parcourue in km: ", tpk)
-        print(f"    Ratio: {(ttk / tpk)* 100}%")
-        print("    Result route path:", cycle)
+        print("    Distance total theorique in km: ", result[geoloc]['distance_theo'])
+        print("    Distance total parcourue in km: ", result[geoloc]['distance_reel'])
+        print(f"    Ratio: {result[geoloc]['ratio']}%")
+        print("    Result route path:", result[geoloc]['path'])
     return result
 
 def export(result):
