@@ -1,10 +1,12 @@
 import pathlib, sys
+from traceback import print_stack
 path = str(pathlib.Path(__file__).parent.absolute().parent) + "/"
 sys.path.append(path)
 
 from graph import Graph
 from chinese_postman import *
 from termcolor import colored
+import unittest
 
 # Test 1 :
 
@@ -75,13 +77,8 @@ def theorical_exemple_3():
                 (6,7,1)])
     return g
 
-# Test 4 :
-
-#       1
-#   6 ---- 7
-#   |       |
-#  2|      3|
-#   |   5   |   3 
+# Test 3 :
+#       5       3
 #   0 ----- 1 ----- 2
 #   |               |
 #  2|              7|
@@ -90,50 +87,36 @@ def theorical_exemple_3():
 #       1       2
 
 def theorical_exemple_4():
-    g = Graph(range(0,9))
+    g = Graph(range(0,6))
     g.add_edges([(0, 1, 5), (0, 3, 2),
                 (1, 2, 3),
                 (2, 5, 7),
                 (3, 4, 1),
-                (4, 5, 2),
-                (0,6,2), (1,7,3),
-                (6,7,1)])
+                (4, 5, 2)])
     return g
 
-def ratio(G):
-    ttk = sum(node[2].weight for node in G.all_edges())
-    tpk = sum(node[2].weight * node[2].visit for node in G.all_edges())
-    print(tpk)
-    print(ttk)
-    return (ttk/tpk)*100 + 100
 
+class Test_trajet(unittest.TestCase):
 
-def main():
-    print("\nFirst Test : ")
-    G_1 = theorical_exemple_1()
-    ok = print(chinese_postman(G_1, 0))
-    if assert ok == [0, 1, 2, 5, 4, 1, 4, 3, 0]:
-        print(f"[{colored('KO', 'red')}]", testcase["name"])
-    print(f"[{colored('OK', 'green')}]", testcase["name"])
+    def test_1(self):
+        G_1 = theorical_exemple_1()
+        print_1 = chinese_postman(G_1, 0)
+        self.assertEqual(print_1, [0, 1, 2, 5, 4, 1, 4, 3, 0])
 
-    print("\nSecond Test : ")
-    G_2 = theorical_exemple_2()
-    print(chinese_postman(G_2, 0))
-    print(f"[{colored('KO', 'red')}]", testcase["name"])
-    print(f"[{colored('OK', 'green')}]", testcase["name"])
+    def test_2(self):
+        G_2 = theorical_exemple_2()
+        print_2 = chinese_postman(G_2, 0)
+        self.assertEqual(print_2, [0, 1, 2, 5, 4, 1, 0, 3, 4, 7, 6, 3, 0])
 
-    print("\nThird Test : ")
-    G_3 = theorical_exemple_3()
-    print(chinese_postman(G_3, 0))
-    print(f"[{colored('KO', 'red')}]", testcase["name"])
-    print(f"[{colored('OK', 'green')}]", testcase["name"])
+    def test_3(self):
+        G_3 = theorical_exemple_3()
+        print_3 = chinese_postman(G_3, 0)
+        self.assertEqual(print_3, [0, 1, 0, 3, 4, 5, 2, 1, 7, 6, 0])
 
-    print("\nFourth Test : ")
-    G_4 = theorical_exemple_4()
-    print(chinese_postman(G_4, 0))
-    print(f"[{colored('KO', 'red')}]", testcase["name"])
-    print(f"[{colored('OK', 'green')}]", testcase["name"])
+    def test_Eulerien(self):
+        G_4 = theorical_exemple_4()
+        print_4 = chinese_postman(G_4, 0)
+        self.assertEqual(print_4, [0, 1, 2, 5, 4, 3, 0])
 
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    unittest.main()

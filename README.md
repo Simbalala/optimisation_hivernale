@@ -20,8 +20,10 @@ python3 theorique/main.py
 
 ## Test
 
+Pour demarrer la test suite il faut faire la commande suivante 
+
 ```sh
-python3 theorique/tests/testsuite.py 
+python3 theorique/tests/testsuite.py -v
 ```
 
 
