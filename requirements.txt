@@ -3,3 +3,4 @@ numpy
 pandas
 osmnx
 matplotlib
+tqdm
