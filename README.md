@@ -39,7 +39,7 @@ all qui va charger les graphs et les chemins decouper
 par arrondissement.
 
 ```sh
-    python3 real/main.py -avec 
+    python3 real/main.py -ave
 ```
 
 Vous pouver si vous le voulez charger le graph d'un seul arrondissment
