@@ -2,30 +2,45 @@
 
 # Installation
 
+A copier coller afin d'installer les modules nécessaires
+
 ```sh
 pip3 install -r requirements.txt
 ```
 
-# Theorique
+# MagicScript 
 
-Le principe de l'algo est de passer par tout les sommet du graph
-au moins une fois.
-Tout en realisant le plus cours chemin.
+Pour l'etude de notre cas reel nous avons realiser le chemin 
+optimal du drone pour la ville de Monreal et par la suite
+nous avons decouper la ville de Monreal suivant ces 19
+arrondissements.
 
-Nous retrouvons un exemple de graph
+Ce script nous montre le chemin à parcourir sur l'ensemble de la ville
+arrondissement par arrondissement.
 
 ```sh
-python3 theorique/main.py 
+python3 real/main.py -ave
 ```
 
-## Test
+## Testsuite
 
-Pour demarrer la test suite il faut faire la commande suivante 
+Pour demarrer la testsuite il faut faire la commande suivante
 
 ```sh
 python3 theorique/tests/testsuite.py -v
 ```
 
+# Theorique
+
+Le principe de notre algorithme est de passer par tout les sommets du graphe
+au moins une fois.
+Tout en realisant le plus court chemin.
+
+Nous retrouvons un exemple de graphe
+
+```sh
+python3 theorique/main.py 
+```
 
 # Real
 
@@ -42,7 +57,7 @@ par arrondissement.
 python3 real/main.py -ave
 ```
 
-Vous pouver si vous le voulez charger le graph d'un seul arrondissment
+Vous pouver si vous le voulez charger le graphe d'un seul arrondissment
 ou de toute la ville de Monreal
 
 Ex: Anjou, Montréal, QC, Canada
@@ -55,7 +70,6 @@ python3 real/main.py -vec 'Anjou, Montréal, QC, Canada'
 # Argument
 
 ```sh
-
 optional arguments:
   -h, --help            show this help message and exit
   -a, --all             Start project on 19 sectors of Monreal
@@ -63,4 +77,3 @@ optional arguments:
   -e, --export          Export path of all graph result is in export folder
   -v, --verbose         See result in console
 ```
-
